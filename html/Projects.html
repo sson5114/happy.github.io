@@ -5,8 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Card</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/top.css">
   <style>
     /* Basic page styling */
     body {
@@ -21,7 +19,7 @@
 
     /* Card container styling */
     .card {
-      width: 400px;
+      width: 500px;
       padding: 20px;
       border: 2px solid #000;
       border-radius: 10px;
@@ -33,23 +31,23 @@
 
     /* Decorative elements */
     .card h1 {
-      font-size: 24px;
+      font-size: 28px;
       color: #FF69B4;
       margin-bottom: 10px;
     }
 
     .card img {
-      width: 200px;
+      width: 300px;
       height: auto;
       margin: 10px 0;
     }
 
-    /* GIF text */
+    /* Animated text and decorations */
     .animated-text {
-      margin: 10px 0;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: bold;
       color: #333;
+      margin: 10px 0;
     }
 
     /* Music player styling */
@@ -75,7 +73,7 @@
     }
 
     .progress-bar {
-      width: 100px;
+      width: 150px;
       height: 5px;
       background-color: #ddd;
       border-radius: 3px;
@@ -88,40 +86,22 @@
       background-color: #FF69B4;
       transition: width 0.1s linear;
     }
-
-    .link-back {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      text-decoration: none;
-      color: #333;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
 <body>
 
-<div class="card">
-  <a href="../index.html" class="link-back">Back to Main Page</a>
-  <h1>Happy Birthday!</h1>
-  
-  <!-- GIF-like animated text -->
-  <div class="animated-text">
-    🎉 祝:生日快乐 🎉
-  </div>
-
-  <!-- Decorative image -->
+  <!-- Decorative image (GIF) larger size -->
   <img src="../images/祝爸爸：生日快乐.gif" alt="Happy Birthday Image">
 
   <!-- Music player below the GIF -->
   <div class="music-player">
-    <button onclick="playPause()">Play</button>
+    <button id="playButton">Play</button>
     <div class="progress-bar"><div id="progress"></div></div>
     <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
   </div>
 
-  <!-- Audio Element -->
-  <audio id="audio" src="../music/生日歌.mp4"></audio>
+  <!-- Audio Element (using .m4a file) -->
+  <audio id="audio" src="../music/(Ausio)生日歌.m4a"></audio>
 </div>
 
 <script>
@@ -130,20 +110,23 @@
   const progress = document.getElementById("progress");
   const currentTimeDisplay = document.getElementById("currentTime");
   const durationDisplay = document.getElementById("duration");
+  const playButton = document.getElementById("playButton");
   let isPlaying = false;
 
   // Function to toggle play/pause
   function playPause() {
-    if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-      event.target.innerText = "Play";
+    if (audio.paused) {
+      audio.play().catch(error => {
+        console.log("Audio playback failed:", error);
+      });
+      playButton.innerText = "Pause";
     } else {
-      audio.play();
-      isPlaying = true;
-      event.target.innerText = "Pause";
+      audio.pause();
+      playButton.innerText = "Play";
     }
   }
+
+  playButton.addEventListener("click", playPause);
 
   // Update progress bar and time display
   audio.addEventListener("timeupdate", () => {
@@ -155,16 +138,17 @@
     const seconds = Math.floor(audio.currentTime % 60).toString().padStart(2, "0");
     currentTimeDisplay.textContent = `${minutes}:${seconds}`;
 
-    // Update duration time
-    const totalMinutes = Math.floor(audio.duration / 60);
-    const totalSeconds = Math.floor(audio.duration % 60).toString().padStart(2, "0");
-    durationDisplay.textContent = `${totalMinutes}:${totalSeconds}`;
+    // Update duration time only once the audio is ready
+    if (!isNaN(audio.duration)) {
+      const totalMinutes = Math.floor(audio.duration / 60);
+      const totalSeconds = Math.floor(audio.duration % 60).toString().padStart(2, "0");
+      durationDisplay.textContent = `${totalMinutes}:${totalSeconds}`;
+    }
   });
 
   // Reset play button when audio ends
   audio.addEventListener("ended", () => {
-    isPlaying = false;
-    document.querySelector(".music-player button").innerText = "Play";
+    playButton.innerText = "Play";
   });
 </script>
 
