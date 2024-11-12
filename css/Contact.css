@@ -1,0 +1,93 @@
+  .main-content .main-left {
+    width: 50%;
+  }
+
+  .main-content .main-right {
+    display: block;
+    margin-left: 20px;
+    width: 50%;
+  }
+
+  .main-left h1 {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 60px;
+  }
+
+  .main-left h1:hover {
+    text-decoration: underline;
+  }
+  
+
+  .main-content .main-right div {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .main-content .main-right a {
+    color: #7091fb;
+  }
+
+  .main-content .main-right a:hover {
+    text-decoration: underline;
+  }
+
+  .main-content .main-right .address,
+  .write {
+    line-height: 30px;
+    width: 120px;
+  }
+
+  .main-content .main-right ul {
+    margin-top: 50px;
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .main-content .main-right ul li {
+    /* border: 1px solid red; */
+    width: 20px;
+  }
+
+  .main-content .main-right ul li a img {
+    width: 100%;
+  }
+
+  .main-content .main-right h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .main-content .main-right input[type=checkbox] {
+    margin: 30px 0;
+  }
+
+  .main-content .main-right .files {
+    cursor: pointer;
+    visibility: middle;
+    text-align: center;
+    line-height: 200px;
+    display: inline-block;
+    width: 400px;
+    height: 200px;
+    position: relative;
+    background: #ededed;
+  }
+
+  .main-content .main-right .files img {
+    margin-left: 10px;
+    box-sizing: border-box;
+    width: 20px;
+  }
+
+  .main-content .main-right p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .main-content .main-right span {
+    display: block;
+    margin-top: 40px;
+  }

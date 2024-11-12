@@ -1,0 +1,112 @@
+.main {
+  margin-top: 80px;
+  height: 600px;
+  /* border: 1px solid red; */
+}
+
+.main .main-title {
+  display: flex;
+}
+
+.main .main-title h1 {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.main .main-title h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.main .main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .main-left {
+  width: 300px;
+  margin: 30px;
+  /* margin-right: 80px; */
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+
+.main .main-left .left_text .open {
+  display: block;
+  background: url('../images/减.png') no-repeat right;
+  background-size: 15px;
+  cursor: pointer;
+}
+
+.main .main-left .left_text .closed {
+  display: block;
+  background: url('../images/加.png') no-repeat right;
+  background-size: 15px;
+  cursor: pointer;
+}
+
+
+.main .main-left .left_text .one-menu {
+  transition: all 0.5s;
+  font-size: 15px;
+  line-height: 40px;
+  color: #878787;
+}
+
+.main .main-left .left_text .one-menu #zhankai {
+  display: block;
+}
+
+.main .main-left .left_text .one-menu #suofang {
+  font-size: 25px;
+  line-height: 40px;
+  display: none;
+}
+
+.main .main-left .left_text li ul {
+  margin-left: 30px;
+  box-sizing: border-box;
+}
+
+.main .main-left .left_text .one-menu .hide {
+  display: none;
+}
+
+.main .main-left .left_text .one-menu .show a {
+  color: #878787;
+}
+
+.main .main-left .left_text .one-menu .show {
+  display: block;
+}
+
+.main .main-right {
+  width: 600px;
+  /* border: 1px solid red; */
+  margin: 30px 0 0 180px;
+  height: 100%;
+}
+
+.main .main-right img {
+  width: 200px;
+  height: 200px;
+}
+
+.main .main-right ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main .main-right ul li {
+  margin-right: 60px;
+  margin-bottom: 40px;
+  width: 200px;
+  /* border: 1px solid red; */
+}
+
+.main .main-right ul li a h1 {
+  line-height: 20px;
+  font-weight: 800;
+  color: #333;
+}
