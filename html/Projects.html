@@ -31,8 +31,8 @@
 
     /* GIF image styling */
     .card img {
-      width: 100%; /* Make the GIF fit the card width */
-      max-width: 400px; /* Optional max width for larger screens */
+      width: 100%;
+      max-width: 400px;
       height: auto;
       margin: 10px 0;
     }
@@ -84,12 +84,15 @@
 
   <!-- Music player below the GIF -->
   <div class="music-player">
-    <button id="playButton"><i class="fas fa-play"></i></button>
+    <button id="playButton">
+      <!-- Icon fallback if Font Awesome doesn’t load -->
+      <i class="fas fa-play"></i><span class="fallback-icon">▶️</span>
+    </button>
     <div class="progress-bar"><div id="progress"></div></div>
     <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
   </div>
 
-  <!-- Audio Element -->
+  <!-- Audio Element (using .m4a or .mp3 file for better compatibility) -->
   <audio id="audio" src="../music/生日歌.m4a"></audio>
 </div>
 
@@ -100,6 +103,7 @@
   const currentTimeDisplay = document.getElementById("currentTime");
   const durationDisplay = document.getElementById("duration");
   const playButton = document.getElementById("playButton");
+  const fallbackIcon = document.querySelector(".fallback-icon");
   let isPlaying = false;
 
   // Function to toggle play/pause
@@ -108,10 +112,10 @@
       audio.play().catch(error => {
         console.log("Audio playback failed:", error);
       });
-      playButton.innerHTML = '<i class="fas fa-pause"></i>';
+      playButton.innerHTML = '<i class="fas fa-pause"></i><span class="fallback-icon">⏸️</span>';
     } else {
       audio.pause();
-      playButton.innerHTML = '<i class="fas fa-play"></i>';
+      playButton.innerHTML = '<i class="fas fa-play"></i><span class="fallback-icon">▶️</span>';
     }
   }
 
@@ -137,7 +141,7 @@
 
   // Reset play button icon when audio ends
   audio.addEventListener("ended", () => {
-    playButton.innerHTML = '<i class="fas fa-play"></i>';
+    playButton.innerHTML = '<i class="fas fa-play"></i><span class="fallback-icon">▶️</span>';
   });
 </script>
 
