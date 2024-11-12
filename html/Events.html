@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/top.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/Projects.css">
+  <style>
+    .left_text ul li {
+      font-size: 15px;
+      line-height: 40px;
+    }
+
+    .left_text ul li a {
+      color: #878787;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="top">
+      <div class="top_left">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../images/logo.png" alt="subscribe">
+          </a>
+        </div>
+        <div class="sousuo">
+          <form action="" class="sousuo-form">
+            <img src="../images/搜索.png" alt="">
+            <input type="text" placeholder="Search">
+            <a href="./login.html"><img src="../images/邮件.png" alt=""></a>
+          </form>
+        </div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li class="active"><a href="./Projects.html">Projects</a>
+            <ul>
+              <li><a href="./Projects.html">Types</a></li>
+              <li><a href="./Projects.html">Location</a></li>
+              <li><a href="./Projects.html">Materials</a></li>
+              <li><a href="./Projects.html">Architects</a></li>
+            </ul>
+          </li>
+          <li class="active" style="border-bottom: 1px solid #000;"><a href="./Events.html">Events</a>
+            <ul>
+              <li><a href="./Events.html">News</a></li>
+              <li><a href="./Events.html">Awards</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Professionals.html">Professionals</a>
+            <ul>
+              <li><a href="./Professionals.html">Offices</a></li>
+              <li><a href="./Professionals.html">Architects</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Contact.html">Contact</a>
+            <ul>
+              <li><a href="./Contact.html">Contact</a></li>
+              <li><a href="./Contact.html">Submission</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main m">
+      <div class="main-title">
+        <h1>EVENTS |</h1>
+        <h1 style="color: #878787;cursor: pointer;" id="Results">400 Results</h1>
+      </div>
+      <div class="main-content">
+        <div class="main-left">
+          <div class="left_text">
+            <ul>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Awards</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-right">
+          <ul>
+            <li>
+              <a href="./Detail.html?id=1">
+                <img src="../images/ceshi .jpg" alt="Graham Foundation Awards 64 Grants for Architecture and Design Projects with Critical Perspectives">
+                <h1>Graham Foundation Awards 64 Grants for Architecture and Design Projects with Critical Perspectives</h1>
+                <h2>May 19 2023, Nicolás Valencia</h2>
+              </a>
+            </li>
+            <li>
+              <a href="./Detail.html?id=2">
+                <img src="../images/award.jpg" alt="The Design Educates Awards 2023 Unveil Their List of Winners">
+                <h1>The Design Educates Awards 2023 Unveil Their List of Winners</h1>
+                <h2>May 19 2023, Diego Hernández</h2>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var result = document.querySelector('.main-right ul')
+    var results_li = result.getElementsByTagName('li')
+    var Results = document.querySelector('#Results')
+
+    Results.innerHTML = results_li.length + ' Results'
+  </script>
+
+</body>
+
+</html>

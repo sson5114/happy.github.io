@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/top.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/Contact.css">
+</head>
+
+<body>
+  <div>
+    <div class="top">
+      <div class="top_left">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../images/logo.png" alt="logo">
+          </a>
+        </div>
+        <div class="sousuo">
+          <form action="" class="sousuo-form">
+            <img src="../images/搜索.png" alt="search">
+            <input type="text" placeholder="Search">
+            <a href="./login.html"><img src="../images/邮件.png" alt="subscribe"></a>
+          </form>
+        </div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li class="active"><a href="./Projects.html">Projects</a>
+            <ul>
+              <li><a href="./Projects.html">Types</a></li>
+              <li><a href="./Projects.html">Location</a></li>
+              <li><a href="./Projects.html">Materials</a></li>
+              <li><a href="./Projects.html">Architects</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Events.html">Events</a>
+            <ul>
+              <li><a href="./Events.html">News</a></li>
+              <li><a href="./Events.html">Awards</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Professionals.html">Professionals</a>
+            <ul>
+              <li><a href="./Professionals.html">Offices</a></li>
+              <li><a href="./Professionals.html">Architects</a></li>
+            </ul>
+          </li>
+          <li class="active" style="border-bottom: 1px solid #000;"><a href="./Contact.html">Contact</a>
+            <ul>
+              <li><a href="./Contact.html">Contact</a></li>
+              <li><a href="./Contact.html">Submission</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main m">
+      <div class="main-content">
+        <div class="main-left">
+          <h1>CONTACT US</h1>
+          <h1>SUBMIT YOUR WORK</h1>
+        </div>
+        <div class="main-right" style="display: block;" id="content1">
+          <div class="phone">Tel:0411923734</div>
+          <div class="email">Email: <a href="./other hiding informations.html" target="_blank">info@drarchi.com.au</a> </div>
+          <div class="address">Address: <br>2 Litte Bay St, Sydney, NSW 2000 </div>
+          <div class="write">Write to us: <br> Signey Song 330 Gorage St, Sydney, NSW 2000 </div>
+          <ul>
+            <li><a href="./other hiding informations.html" target="_blank"><img src="../images/谷歌.png" alt=""></a></li>
+            <li><a href="./other hiding informations.html" target="_blank"><img src="../images/facebook-fill.png" alt=""></a></li>
+            <li><a href="./other hiding informations.html" target="_blank"><img src="../images/推特.png" alt=""></a></li>
+            <li><a href="./other hiding informations.html" target="_blank"><img src="../images/Instagram.png" alt=""></a></li>
+            <li><a href="./other hiding informations.html" target="_blank"><img src="../images/behance.png" alt=""></a></li>
+          </ul>
+        </div>
+        <div class="main-right" style="display: none;" id="content2">
+          <h2>Terms and Conditions</h2>
+          <label><input type="checkbox"> I agree with the <a href="./other hiding informations.html" target="_blank">terms and conditions</a></label>
+          <label>
+            <div class="files">
+              <h1>Upload Your Work <img src="../images/上传.png" alt="Upload Icon"></h1>
+              <input type="file" style="display: none;">
+
+            </div>
+          </label>
+          <p>1.Add project types</p>
+          <p>2.Add a brief description</p>
+          <p>3.Add author,reacher,background,age</p>
+          <span> <a href="./other hiding informations.html" target="_blank">O&A</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var item = document.querySelector('.main-left')
+    var content1 = document.querySelector('#content1')
+    var content2 = document.querySelector('#content2')
+    item.firstElementChild.onclick = function () {
+      content1.style.display = 'block'
+      content2.style.display = 'none'
+    }
+    item.lastElementChild.onclick = function () {
+      content1.style.display = 'none'
+      content2.style.display = 'block'
+    }
+  </script>
+</body>
+
+</html>

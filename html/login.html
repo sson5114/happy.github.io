@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/reset.css">
+
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/top.css">
+</head>
+
+<body>
+  <div>
+    <div class="top">
+      <div class="top_left">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../images/logo.png" alt="logo">
+          </a>
+        </div>
+        <div class="sousuo">
+          <form action="" class="sousuo-form">
+            <img src="../images/搜索.png" alt="search">
+            <input type="text" placeholder="Search">
+            <a href="./login.html"><img src="../images/邮件.png" alt="subscribe"></a>
+          </form>
+        </div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li class="active"><a href="./Projects.html">Projects</a>
+            <ul>
+              <li><a href="./Projects.html">Types</a></li>
+              <li><a href="./Projects.html">Location</a></li>
+              <li><a href="./Projects.html">Materials</a></li>
+              <li><a href="./Projects.html">Architects</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Events.html">Events</a>
+            <ul>
+              <li><a href="./Events.html">News</a></li>
+              <li><a href="./Events.html">Awards</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Professionals.html">Professionals</a>
+            <ul>
+              <li><a href="./Professionals.html">Offices</a></li>
+              <li><a href="./Professionals.html">Architects</a></li>
+            </ul>
+          </li>
+          <li class="active"><a href="./Contact.html">Contact</a>
+            <ul>
+              <li><a href="./Contact.html">Contact</a></li>
+              <li><a href="./Contact.html">Submission</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="login m">
+      <form action="./Projects.html" onsubmit="alert('you‘re successfully subscribe')">
+        <h1>SIGNUP TO ACCESS FREE</h1>
+        <div class="name">
+          <p>Name and Surname</p>
+          <input type="text">
+        </div>
+        <div class="emial">
+          <p>Email</p>
+          <input type="text">
+        </div>
+        <input type="submit" value="SIGN UP">
+      </form>
+    </div>
+  </div>
+  <script language="javascript">
+    function sumbit_sure() {
+      alert('you`re successfully subscribe')
+    }
+  </script>
+</body>
+
+</html>
