@@ -85,14 +85,12 @@
       <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
     </div>
   </div>
-
-  <!-- Audio Element -->
-  const audioTune = new Audio("https://github.com/sson5114/happy.github.io/tree/main/生日歌.mp3?raw=true");
-    
 </div>
 
 <script>
-  var audio = document.getElementById('myAudio');
+  // Initialize the audio element with a direct URL
+  const audio = new Audio("https://github.com/sson5114/happy.github.io/tree/main/生日歌.mp3");
+
   var playPauseButton = document.getElementById('playPauseButton');
 
   function playAudio() {
