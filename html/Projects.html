@@ -1,149 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
+  <title>Happy Birthday Card</title>
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/top.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/Projects.css">
+  <style>
+    /* Basic page styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Card container styling */
+    .card {
+      width: 400px;
+      padding: 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      background-color: #fff;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Decorative elements */
+    .card h1 {
+      font-size: 24px;
+      color: #FF69B4;
+    }
+
+    .card img {
+      width: 100px;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    /* GIF text */
+    .animated-text {
+      margin: 10px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Music player styling */
+    .music-player {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .music-player button {
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .music-player button:hover {
+      background-color: #555;
+    }
+
+    .progress-bar {
+      width: 100px;
+      height: 5px;
+      background-color: #ddd;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-bar div {
+      height: 100%;
+      width: 0;
+      background-color: #FF69B4;
+      transition: width 0.1s linear;
+    }
+
+    .link-back {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-
 <body>
-  <div>
-    <div class="top">
-      <div class="top_left">
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../images/logo.png" alt="logo">
-          </a>
-        </div>
-        <div class="sousuo">
-          <form action="" class="sousuo-form">
-            <img src="../images/搜索.png" alt="search">
-            <input type="text" placeholder="Search">
-            <a href="./login.html"><img src="../images/邮件.png" alt="subscribe"></a>
 
-          </form>
-        </div>
-      </div>
-      <div class="nav">
-        <ul>
-          <li class="active" style="border-bottom: 1px solid #000;"><a href="./Projects.html">Projects</a>
-            <ul>
-              <li><a href="./Projects.html">Types</a></li>
-              <li><a href="./Projects.html">Location</a></li>
-              <li><a href="./Projects.html">Materials</a></li>
-              <li><a href="./Projects.html">Architects</a></li>
-            </ul>
-          </li>
-          <li class="active"><a href="./Events.html">Events</a>
-            <ul>
-              <li><a href="./Events.html">News</a></li>
-              <li><a href="./Events.html">Awards</a></li>
-            </ul>
-          </li>
-          <li class="active"><a href="./Professionals.html">Professionals</a>
-            <ul>
-              <li><a href="./Professionals.html">Offices</a></li>
-              <li><a href="./Professionals.html">Architects</a></li>
-            </ul>
-          </li>
-          <li class="active"><a href="./Contact.html">Contact</a>
-            <ul>
-              <li><a href="./Contact.html">Contact</a></li>
-              <li><a href="./Contact.html">Submission</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main m">
-      <div class="main-title">
-        <h1>PROJECTS |</h1>
-        <h1 style="color: #878787;cursor: pointer;" id="Results"> Results</h1>
-      </div>
-      <div class="main-content">
-        <div class="main-left">
-          <div class="left_text">
-            <ul class="tree">
-              <li class="one-menu">
-                <span class="closed">Types</span>
-                <ul class="hide">
-                  <li><a href="#">Residential Architecture</a></li>
-                  <li><a href="#">Commerical Architecture</a></li>
-                  <li><a href="#">Public Architecture</a></li>
-                  <li><a href="#">Education Architecture</a></li>
-                  <li><a href="#">Health Architecture</a></li>
-                  <li><a href="#">Landscape&Urbanism</a></li>
-                </ul>
-              </li>
-              <li class="one-menu">
-                <span class="closed">Location</span>
-                <ul class="hide">
-                  <li><a href="#">Asia</a></li>
-                  <li><a href="#">Africa</a></li>
-                  <li><a href="#">Europe</a></li>
-                  <li><a href="#">North America</a></li>
-                  <li><a href="#">South America</a></li>
-                  <li><a href="#">Oceania</a></li>
-                </ul>
-              </li>
-              <li class="one-menu"><span class="closed">Materials</span>
-                <ul class="hide">
-                  <li><a href="#">Brick</a></li>
-                  <li><a href="#">Concrete</a></li>
-                  <li><a href="#">Steel</a></li>
-                  <li><a href="#">Stone</a></li>
-                  <li><a href="#">Wood</a></li>
-                  <li><a href="#">Other</a></li>
-                </ul>
-              </li>
-              <li class="one-menu"><span class="closed">Architects</span>
-                <ul class="hide">
-                  <li><a href="#">Search</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="main-right">
-          <ul>
-            <li>
-              <a href="./Detail.html?id=1">
-                <img src="../images/brick.jpg" alt="Watchman House / COA Arquitectura">
-                <h1>BRICK</h1>
-                <h2>Watchman House / COA Arquitectura</h2>
-              </a>
-            </li>
-            <li>
-              <a href="./Detail.html?id=2">
-                <img src="../images/concrete.jpg" alt="Sleeping Lab·Arch / Atelier d'More">
-                <h1>CONCRETE</h1>
-                <h2>Sleeping Lab·Arch / Atelier d'More</h2>
-              </a>
-            </li>
-            <li><a href="./Detail.html?id=3">
-                <img src="../images/steel.jpg" alt="New Interior for Casa Batlló Stairs & Atrium / Kengo Kuma & Associates">
-                <h1>STEEL</h1>
-                <h2>New Interior for Casa Batlló Stairs & Atrium / Kengo Kuma & Associates</h2>
-              </a>
-            </li>
-            <li><a href="./Detail.html?id=4">
-                <img src="../images/steel-1.jpg" alt="Boundless Theater of Egret Bay / Beijing Guanzhuan Landscape Planning and Design Institution">
-                <h1>STEEL</h1>
-                <h2>Boundless Theater of Egret Bay / Beijing Guanzhuan Landscape Planning and Design Institution</h2>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<div class="card">
+  <a href="../index.html" class="link-back">Back to Main Page</a>
+  <h1>Happy Birthday!</h1>
+  
+  <!-- GIF-like animated text -->
+  <div class="animated-text">
+    🎉 祝:生日快乐 🎉
   </div>
-  <script src="../js/index.js"></script>
-</body>
 
+  <!-- Decorative image -->
+  <img src="../images/happy_birthday.gif" alt="Happy Birthday Image">
+
+  <!-- Music player -->
+  <div class="music-player">
+    <button onclick="playPause()">Play</button>
+    <div class="progress-bar"><div id="progress"></div></div>
+    <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="audio" src="../music/happy_birthday.mp3"></audio>
+</div>
+
+<script>
+  // JavaScript for playing/pausing music and updating progress bar
+  const audio = document.getElementById("audio");
+  const progress = document.getElementById("progress");
+  const currentTimeDisplay = document.getElementById("currentTime");
+  const durationDisplay = document.getElementById("duration");
+  let isPlaying = false;
+
+  // Function to toggle play/pause
+  function playPause() {
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      event.target.innerText = "Play";
+    } else {
+      audio.play();
+      isPlaying = true;
+      event.target.innerText = "Pause";
+    }
+  }
+
+  // Update progress bar and time display
+  audio.addEventListener("timeupdate", () => {
+    const progressPercentage = (audio.currentTime / audio.duration) * 100;
+    progress.style.width = progressPercentage + "%";
+
+    // Update current time
+    const minutes = Math.floor(audio.currentTime / 60);
+    const seconds = Math.floor(audio.currentTime % 60).toString().padStart(2, "0");
+    currentTimeDisplay.textContent = `${minutes}:${seconds}`;
+
+    // Update duration time
+    const totalMinutes = Math.floor(audio.duration / 60);
+    const totalSeconds = Math.floor(audio.duration % 60).toString().padStart(2, "0");
+    durationDisplay.textContent = `${totalMinutes}:${totalSeconds}`;
+  });
+
+  // Reset play button when audio ends
+  audio.addEventListener("ended", () => {
+    isPlaying = false;
+    document.querySelector(".music-player button").innerText = "Play";
+  });
+</script>
+
+</body>
 </html>
