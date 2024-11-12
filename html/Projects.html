@@ -92,7 +92,7 @@
     <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
   </div>
 
-  <!-- Audio Element (using .m4a or .mp3 file for better compatibility) -->
+  <!-- Audio Element (using .mp3 file for better compatibility) -->
   <audio id="audio" src="../music/生日歌.mp3"></audio>
 </div>
 
@@ -103,14 +103,25 @@
   const currentTimeDisplay = document.getElementById("currentTime");
   const durationDisplay = document.getElementById("duration");
   const playButton = document.getElementById("playButton");
-  const fallbackIcon = document.querySelector(".fallback-icon");
   let isPlaying = false;
+
+  // Check if audio is loaded
+  audio.addEventListener("loadeddata", () => {
+    console.log("Audio loaded successfully.");
+  });
+
+  // Error handling for loading audio
+  audio.addEventListener("error", (e) => {
+    console.error("Failed to load audio:", e);
+    alert("Failed to load the audio file. Please check the file path and format.");
+  });
 
   // Function to toggle play/pause
   function playPause() {
     if (audio.paused) {
       audio.play().catch(error => {
-        console.log("Audio playback failed:", error);
+        console.error("Audio playback failed:", error);
+        alert("Audio playback failed. Please check console for details.");
       });
       playButton.innerHTML = '<i class="fas fa-pause"></i><span class="fallback-icon">⏸️</span>';
     } else {
