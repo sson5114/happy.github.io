@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Card</title>
+  <title>Birthday Card</title>
   <style>
     /* Basic page styling */
     body {
@@ -29,24 +29,11 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* Decorative elements */
-    .card h1 {
-      font-size: 28px;
-      color: #FF69B4;
-      margin-bottom: 10px;
-    }
-
+    /* GIF image styling */
     .card img {
-      width: 300px;
+      width: 100%; /* Make the GIF fit the card width */
+      max-width: 400px; /* Optional max width for larger screens */
       height: auto;
-      margin: 10px 0;
-    }
-
-    /* Animated text and decorations */
-    .animated-text {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #333;
       margin: 10px 0;
     }
 
@@ -60,16 +47,15 @@
     }
 
     .music-player button {
-      background-color: #333;
-      color: white;
+      background-color: transparent;
       border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
       cursor: pointer;
+      font-size: 24px;
+      color: #333;
     }
 
     .music-player button:hover {
-      background-color: #555;
+      color: #FF69B4;
     }
 
     .progress-bar {
@@ -87,21 +73,24 @@
       transition: width 0.1s linear;
     }
   </style>
+  <!-- Adding Font Awesome for play/pause icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+<div class="card">
   <!-- Decorative image (GIF) larger size -->
   <img src="../images/祝爸爸：生日快乐.gif" alt="Happy Birthday Image">
 
   <!-- Music player below the GIF -->
   <div class="music-player">
-    <button id="playButton">Play</button>
+    <button id="playButton"><i class="fas fa-play"></i></button>
     <div class="progress-bar"><div id="progress"></div></div>
     <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
   </div>
 
-  <!-- Audio Element (using .m4a file) -->
-  <audio id="audio" src="../music/(Ausio)生日歌.m4a"></audio>
+  <!-- Audio Element -->
+  <audio id="audio" src="../music/生日歌.m4a"></audio>
 </div>
 
 <script>
@@ -119,10 +108,10 @@
       audio.play().catch(error => {
         console.log("Audio playback failed:", error);
       });
-      playButton.innerText = "Pause";
+      playButton.innerHTML = '<i class="fas fa-pause"></i>';
     } else {
       audio.pause();
-      playButton.innerText = "Play";
+      playButton.innerHTML = '<i class="fas fa-play"></i>';
     }
   }
 
@@ -146,9 +135,9 @@
     }
   });
 
-  // Reset play button when audio ends
+  // Reset play button icon when audio ends
   audio.addEventListener("ended", () => {
-    playButton.innerText = "Play";
+    playButton.innerHTML = '<i class="fas fa-play"></i>';
   });
 </script>
 
