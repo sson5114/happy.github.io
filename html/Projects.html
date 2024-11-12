@@ -68,8 +68,8 @@
       color: #333;
     }
   </style>
-  <!-- Adding Font Awesome for play/pause and volume icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Embedding Font Awesome icons directly to avoid loading issues -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
@@ -99,11 +99,12 @@
 
   function playAudio() {
     if (audio.paused) {
-      audio.play().catch(error => {
+      audio.play().then(() => {
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+      }).catch(error => {
         console.error("Audio playback failed:", error);
         alert("Audio playback failed. Please check the console for details.");
       });
-      playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
     } else {
       audio.pause();
       playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
