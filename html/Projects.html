@@ -35,10 +35,11 @@
     .card h1 {
       font-size: 24px;
       color: #FF69B4;
+      margin-bottom: 10px;
     }
 
     .card img {
-      width: 100px;
+      width: 200px;
       height: auto;
       margin: 10px 0;
     }
@@ -100,11 +101,19 @@
 </head>
 <body>
 
+<div class="card">
+  <a href="../index.html" class="link-back">Back to Main Page</a>
+  <h1>Happy Birthday!</h1>
+  
+  <!-- GIF-like animated text -->
+  <div class="animated-text">
+    🎉 祝:生日快乐 🎉
+  </div>
 
   <!-- Decorative image -->
   <img src="../images/祝爸爸：生日快乐.gif" alt="Happy Birthday Image">
 
-  <!-- Music player -->
+  <!-- Music player below the GIF -->
   <div class="music-player">
     <button onclick="playPause()">Play</button>
     <div class="progress-bar"><div id="progress"></div></div>
