@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,42 +7,171 @@
   <title>DeArchi | Architecture Design</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
+  <style>
+    /* Basic styling for envelope overlay */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+    }
+
+    /* Overlay to show envelope */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    /* Envelope styling */
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background-color: #ffffff;
+      border: 2px solid #000;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      width: 120%;
+      height: 100%;
+      background-color: #ffffff;
+      border: 2px solid #000;
+      border-bottom: none;
+      border-radius: 8px;
+      transform: translateX(-50%) rotate(45deg);
+      z-index: 1;
+    }
+
+    /* Letter inside the envelope */
+    .letter {
+      position: absolute;
+      top: 30px;
+      left: 10px;
+      right: 10px;
+      height: 140px;
+      background-color: #fffdf0;
+      border: 2px solid #000;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .letter h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .letter p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Open button */
+    #openButton {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      z-index: 3;
+    }
+
+    #openButton:hover {
+      background-color: #555;
+    }
+
+    /* Hide main content initially */
+    .main-content {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="main">
-    <div class="item1 bgOne">
-      <h1>PROJECTS</h1>
-      <ul>
-        <li><a href="./html/Projects.html">
-            <h2>Types</h2>
-          </a></li>
-        <li><a href="./html/Projects.html">
-            <h2>Location</h2>
-          </a></li>
-        <li><a href="./html/Projects.html">
-            <h2>Materials</h2>
-          </a></li>
-        <li><a href="./html/Projects.html">
-            <h2>Architects</h2>
-          </a></li>
-      </ul>
-    </div>
-    <div class="item2 bgTwo">
-      <h1>EVENTS</h1>
-      <ul>
-        <li><a href="./html/Events.html">
-            <h2>News</h2>
-          </a></li>
-        <li><a href="./html/Events.html">
-            <h2>Awards</h2>
-          </a></li>
-      </ul>
 
-    <div class="main_right">
-      <a href="#"><img src="./images/logo-1.png" alt="logo"></a>
+  <!-- Envelope overlay -->
+  <div class="overlay" id="envelopeOverlay">
+    <div class="envelope">
+      <div class="letter">
+        <h2>母上大人</h2>
+        <p>亲启</p>
+      </div>
+      <button id="openButton">Open Letter</button>
     </div>
   </div>
-</body>
 
+  <!-- Main content of the website -->
+  <div class="main-content">
+    <div class="main">
+      <div class="item1 bgOne">
+        <h1>PROJECTS</h1>
+        <ul>
+          <li><a href="./html/Projects.html">
+              <h2>Types</h2>
+            </a></li>
+          <li><a href="./html/Projects.html">
+              <h2>Location</h2>
+            </a></li>
+          <li><a href="./html/Projects.html">
+              <h2>Materials</h2>
+            </a></li>
+          <li><a href="./html/Projects.html">
+              <h2>Architects</h2>
+            </a></li>
+        </ul>
+      </div>
+      <div class="item2 bgTwo">
+        <h1>EVENTS</h1>
+        <ul>
+          <li><a href="./html/Events.html">
+              <h2>News</h2>
+            </a></li>
+          <li><a href="./html/Events.html">
+              <h2>Awards</h2>
+            </a></li>
+        </ul>
+      </div>
+      <div class="main_right">
+        <a href="#"><img src="./images/logo-1.png" alt="logo"></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle "open" button click and reveal main content
+    const openButton = document.getElementById('openButton');
+    const envelopeOverlay = document.getElementById('envelopeOverlay');
+    const mainContent = document.querySelector('.main-content');
+
+    openButton.addEventListener('click', function() {
+      envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
+      mainContent.style.display = 'block';    // Show the main content
+    });
+  </script>
+
+</body>
 </html>
+
