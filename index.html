@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeArchi | Architecture Design</title>
   <link rel="stylesheet" href="./css/reset.css">
@@ -97,24 +96,40 @@
       text-align: center;
       padding: 20px;
       color: white;
+      transition: background 0.3s;
     }
 
     .bgOne {
-      background-color: #d47a7a; /* Light red background for Projects */
+      background-color: #d47a7a;
     }
 
     .bgTwo {
-      background-color: #d1b28c; /* Light beige background for Events */
+      background-color: #d1b28c;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    /* Image styling */
+    .section-image {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    /* Hover effect for images */
+    .item1:hover .project-image {
+      content: url('./images/project-selected.png'); /* Path to selected state image for Projects */
+      transform: scale(1.1); /* Slightly enlarge the image on hover */
+    }
+
+    .item2:hover .event-image {
+      content: url('./images/event-selected.png'); /* Path to selected state image for Events */
+      transform: scale(1.1); /* Slightly enlarge the image on hover */
     }
 
     ul {
       list-style-type: none;
       padding: 0;
+      margin-top: 20px;
     }
 
     ul li {
@@ -155,7 +170,8 @@
     <div class="main">
       <!-- Projects Section -->
       <div class="item1 bgOne">
-        <h1>PROJECTS</h1>
+        <!-- Replace text with image and apply hover effect -->
+        <img src="./images/project.png" alt="Projects" class="section-image project-image">
         <ul>
           <li><a href="./html/Projects.html">Types</a></li>
           <li><a href="./html/Projects.html">Location</a></li>
@@ -165,7 +181,8 @@
       </div>
       <!-- Events Section -->
       <div class="item2 bgTwo">
-        <h1>EVENTS</h1>
+        <!-- Replace text with image and apply hover effect -->
+        <img src="./images/event.png" alt="Events" class="section-image event-image">
         <ul>
           <li><a href="./html/Events.html">News</a></li>
           <li><a href="./html/Events.html">Awards</a></li>
