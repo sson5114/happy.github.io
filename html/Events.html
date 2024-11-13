@@ -77,42 +77,35 @@
 <a href="../index.html?skipOverlay=true" class="back-button"><i class="fas fa-arrow-left"></i></a>
 
 <!-- Open Letter -->
-<div class="letter">
+<div class="letter" onclick="startTyping()">
   <div id="letterContent"></div>
   <img src="../images/爱心.gif" alt="Heart GIF" class="gif">
 </div>
 
 <script>
-  // Text to display in the letter, broken into lines
-  const letterTextLines = [
-    "祝您：",
-    "平安，健康，开心，",
-    "好运，自由，幸福，",
-    "吃嘛嘛香，",
-    "拉屎顺畅！"
-  ];
+  // Text to display in the letter with typewriter effect, split into lines
+  const letterText = "祝您：\n平安，健康，开心，\n好运，自由，幸福，\n吃嘛嘛香，\n拉屎顺畅！";
 
-  // Function to reveal text line-by-line with typewriter effect
+  // Function to reveal text character-by-character on click
   function startTyping() {
     const letterContent = document.getElementById('letterContent');
     letterContent.innerHTML = ''; // Clear previous content
-    let lineIndex = 0;
+    let index = 0;
 
     function typeWriter() {
-      if (lineIndex < letterTextLines.length) {
-        const line = document.createElement("div");
-        line.textContent = letterTextLines[lineIndex];
-        letterContent.appendChild(line);
-        lineIndex++;
-        setTimeout(typeWriter, 1000); // Delay between lines
+      if (index < letterText.length) {
+        letterContent.innerHTML += letterText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 150); // Adjust speed of text reveal
       }
     }
 
-    typeWriter();
+    // Trigger the typing effect only on first click
+    if (!letterContent.dataset.started) {
+      letterContent.dataset.started = "true";
+      typeWriter();
+    }
   }
-
-  // Start the typing effect when the page loads
-  document.addEventListener("DOMContentLoaded", startTyping);
 </script>
 
 <!-- Font Awesome for the back button icon -->
