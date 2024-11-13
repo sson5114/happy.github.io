@@ -90,7 +90,6 @@
     .item1, .item2 {
       width: 50%;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -120,26 +119,6 @@
     .item2:hover .event-image {
       transform: scale(1.1); /* Slightly enlarge the image on hover */
     }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-
-    ul li {
-      margin: 10px 0;
-    }
-
-    ul li a {
-      color: white;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-
-    ul li a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 
@@ -165,27 +144,17 @@
     <div class="main">
       <!-- Projects Section -->
       <div class="item1 bgOne">
-        <!-- Replace text with image and apply hover effect -->
+        <!-- Display only the image for Projects -->
         <img src="./images/小狗.png" alt="Projects" class="section-image project-image" 
-             onmouseover="this.src='./images/小狗狗.png'" 
+             onmouseover="this.src='./images/project-selected.png'" 
              onmouseout="this.src='./images/小狗.png'">
-        <ul>
-          <li><a href="./html/Projects.html">Types</a></li>
-          <li><a href="./html/Projects.html">Location</a></li>
-          <li><a href="./html/Projects.html">Materials</a></li>
-          <li><a href="./html/Projects.html">Architects</a></li>
-        </ul>
       </div>
       <!-- Events Section -->
       <div class="item2 bgTwo">
-        <!-- Replace text with image and apply hover effect -->
+        <!-- Display only the image for Events -->
         <img src="./images/帽子.png" alt="Events" class="section-image event-image" 
-             onmouseover="this.src='./images/气球.png'" 
+             onmouseover="this.src='./images/event-selected.png'" 
              onmouseout="this.src='./images/帽子.png'">
-        <ul>
-          <li><a href="./html/Events.html">News</a></li>
-          <li><a href="./html/Events.html">Awards</a></li>
-        </ul>
       </div>
     </div>
   </div>
