@@ -192,6 +192,15 @@
       envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
       mainContent.style.display = 'flex';      // Show the main content
     });
+
+    // Check if 'skipOverlay' is present in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const skipOverlay = urlParams.get('skipOverlay');
+
+    if (skipOverlay === 'true') {
+      envelopeOverlay.style.display = 'none';  // Hide the overlay
+      mainContent.style.display = 'flex';      // Show the main content
+    }
   </script>
 
 </body>
