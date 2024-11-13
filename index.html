@@ -161,16 +161,24 @@
   </div>
 
   <script>
-    // JavaScript to handle "open" button click and reveal main content
-    const openButton = document.getElementById('openButton');
-    const envelopeOverlay = document.getElementById('envelopeOverlay');
-    const mainContent = document.querySelector('.main-content');
+  const openButton = document.getElementById('openButton');
+  const envelopeOverlay = document.getElementById('envelopeOverlay');
+  const mainContent = document.querySelector('.main-content');
 
+  // Check if 'overlayOpened' is stored in local storage
+  if (localStorage.getItem('overlayOpened') === 'true') {
+    envelopeOverlay.style.display = 'none';  // Hide the overlay
+    mainContent.style.display = 'block';     // Show the main content
+  } else {
+    // Show overlay and wait for "Open Letter" button click
     openButton.addEventListener('click', function() {
       envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
-      mainContent.style.display = 'block';    // Show the main content
+      mainContent.style.display = 'block';     // Show the main content
+      localStorage.setItem('overlayOpened', 'true'); // Set flag in local storage
     });
-  </script>
+  }
+</script>
+
 
 </body>
 </html>
