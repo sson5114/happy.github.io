@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     /* Open letter styling with background image */
     .letter {
       width: 600px;
-      height: 700px;
+      height: 800px;
       border: 2px solid #000;
       border-radius: 10px;
       padding: 20px;
@@ -32,22 +32,23 @@
       justify-content: flex-start;
     }
 
-    /* Text styling */
+    /* Updated Text styling for a handwritten look */
     #letterContent {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      font-size: 1.5rem;
+      line-height: 1.8;
       color: #333;
       white-space: pre-wrap;
-      padding-top: 100px; /* Add padding to position the text nicely over the background */
+      padding-top: 120px; /* Adjust for spacing from the top */
+      font-family: 'KaiTi', cursive; /* You may replace with a similar handwritten font */
     }
 
-    /* GIF styling */
+    /* Enlarged GIF styling */
     .gif {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
-      width: 60px;
-      height: 60px;
+      bottom: 15px;
+      left: 15px;
+      width: 100px; /* Increased size */
+      height: 100px;
     }
   </style>
 </head>
@@ -56,8 +57,8 @@
 <!-- Open Letter -->
 <div class="letter">
   <p id="letterContent"></p>
-  <!-- Sunflower GIF -->
-  <img src="../images/爱心.gif" alt="Sunflower GIF" class="gif"> <!-- Update path as needed -->
+  <!-- Enlarged Heart GIF positioned at bottom left -->
+  <img src="../images/爱心.gif" alt="Heart GIF" class="gif"> <!-- Update path as needed -->
 </div>
 
 <script>
