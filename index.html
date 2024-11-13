@@ -188,6 +188,9 @@
     if (skipOverlay) {
       envelopeOverlay.style.display = 'none';  // Hide the overlay
       mainContent.style.display = 'flex';      // Show the main content
+    } else {
+      // Show the envelope overlay initially
+      envelopeOverlay.style.display = 'flex';
     }
 
     // Function to display the open letter view
