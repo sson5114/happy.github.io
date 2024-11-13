@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
   <style>
-    /* Basic styling for envelope overlay */
+    /* Basic styling for overlay */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -29,66 +29,39 @@
       z-index: 999;
     }
 
-    /* Envelope styling */
-    .envelope {
-      position: relative;
+    /* Closed envelope styling */
+    .closed-envelope img {
+      width: 300px;
+      cursor: pointer;
+    }
+
+    /* Open letter styling */
+    .open-letter {
       width: 300px;
       height: 200px;
-      background-color: #ffffff;
-      border: 2px solid #000;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .envelope::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      width: 120%;
-      height: 100%;
-      background-color: #ffffff;
-      border: 2px solid #000;
-      border-bottom: none;
-      border-radius: 8px;
-      transform: translateX(-50%) rotate(45deg);
-      z-index: 1;
-    }
-
-    /* Letter inside the envelope */
-    .letter {
-      position: absolute;
-      top: 30px;
-      left: 10px;
-      right: 10px;
-      height: 140px;
       background-color: #fffdf0;
       border: 2px solid #000;
-      border-radius: 5px;
+      border-radius: 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 2;
+      text-align: center;
     }
 
-    .letter h2 {
+    .open-letter h2 {
       margin: 0;
       font-size: 1.2rem;
     }
 
-    .letter p {
+    .open-letter p {
       margin: 0;
       font-size: 1rem;
     }
 
     /* Open button */
     #openButton {
-      position: absolute;
-      top: 80%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      margin-top: 15px;
       padding: 10px 20px;
       background-color: #333;
       color: white;
@@ -96,7 +69,6 @@
       border-radius: 5px;
       cursor: pointer;
       transition: 0.3s ease;
-      z-index: 3;
     }
 
     #openButton:hover {
@@ -107,54 +79,6 @@
     .main-content {
       display: none;
     }
-
-    /* Flexbox layout for Projects and Events sections */
-    .main {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      width: 100%;
-      height: 100vh;
-    }
-
-    /* Styling for Projects and Events sections */
-    .item1, .item2 {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      color: white;
-    }
-
-    .item1 {
-      background-color: #e0bbd5; /* Light pink for Projects */
-    }
-
-    .item2 {
-      background-color: #d8c3a5; /* Light beige for Events */
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin: 10px 0;
-    }
-
-    ul li a {
-      text-decoration: none;
-      color: white;
-      font-size: 1.2rem;
-    }
   </style>
 </head>
 
@@ -162,11 +86,15 @@
 
   <!-- Envelope overlay -->
   <div class="overlay" id="envelopeOverlay">
-    <div class="envelope">
-      <div class="letter">
-        <h2>父亲大人</h2>
-        <p>亲启</p>
-      </div>
+    <!-- Closed Envelope View -->
+    <div class="closed-envelope" id="closedEnvelope">
+      <img src="./images/closed-envelope.jpg" alt="Closed Envelope" onclick="openLetter()">
+    </div>
+
+    <!-- Open Letter View (initially hidden) -->
+    <div class="open-letter" id="openLetter" style="display: none;">
+      <h2>父亲大人</h2>
+      <p>亲启</p>
       <button id="openButton">Open Letter</button>
     </div>
   </div>
@@ -174,7 +102,6 @@
   <!-- Main content of the website -->
   <div class="main-content">
     <div class="main">
-      <!-- Projects Section -->
       <div class="item1 bgOne">
         <h1>PROJECTS</h1>
         <ul>
@@ -184,8 +111,6 @@
           <li><a href="./html/Projects.html">Architects</a></li>
         </ul>
       </div>
-
-      <!-- Events Section -->
       <div class="item2 bgTwo">
         <h1>EVENTS</h1>
         <ul>
@@ -200,8 +125,16 @@
     const openButton = document.getElementById('openButton');
     const envelopeOverlay = document.getElementById('envelopeOverlay');
     const mainContent = document.querySelector('.main-content');
+    const closedEnvelope = document.getElementById('closedEnvelope');
+    const openLetter = document.getElementById('openLetter');
 
-    // Remove localStorage check to show overlay every time
+    // Function to display the open letter view
+    function openLetter() {
+      closedEnvelope.style.display = 'none';  // Hide the closed envelope
+      openLetter.style.display = 'flex';      // Show the open letter
+    }
+
+    // Function to open the main content and close the overlay
     openButton.addEventListener('click', function() {
       envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
       mainContent.style.display = 'block';     // Show the main content
