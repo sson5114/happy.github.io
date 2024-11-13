@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
   <style>
-    /* Basic styling for overlay */
+    /* Basic styling */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -75,9 +75,60 @@
       background-color: #555;
     }
 
-    /* Hide main content initially */
+    /* Main content styling */
     .main-content {
       display: none;
+      display: flex;
+      height: 100vh;
+    }
+
+    .main {
+      display: flex;
+      width: 100%;
+    }
+
+    /* Split the page equally */
+    .item1, .item2 {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .bgOne {
+      background-color: #d47a7a; /* Light red background for Projects */
+    }
+
+    .bgTwo {
+      background-color: #d1b28c; /* Light beige background for Events */
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    ul li a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -102,6 +153,7 @@
   <!-- Main content of the website -->
   <div class="main-content">
     <div class="main">
+      <!-- Projects Section -->
       <div class="item1 bgOne">
         <h1>PROJECTS</h1>
         <ul>
@@ -111,6 +163,7 @@
           <li><a href="./html/Projects.html">Architects</a></li>
         </ul>
       </div>
+      <!-- Events Section -->
       <div class="item2 bgTwo">
         <h1>EVENTS</h1>
         <ul>
@@ -137,7 +190,7 @@
     // Function to open the main content and close the overlay
     openButton.addEventListener('click', function() {
       envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
-      mainContent.style.display = 'block';     // Show the main content
+      mainContent.style.display = 'flex';      // Show the main content
     });
   </script>
 
