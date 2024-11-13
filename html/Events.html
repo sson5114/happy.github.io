@@ -16,74 +16,61 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Open letter styling with background image */
+    /* Letter styling with background image */
     .letter {
       width: 600px;
       height: 800px;
       border: 2px solid #000;
       border-radius: 10px;
-      padding: 20px;
       background: url('../images/信纸.jpg') no-repeat center center;
-      background-size: cover;
+      background-size: contain;
       position: relative;
-      text-align: left;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
+      padding: 40px;
+      box-sizing: border-box;
     }
 
-    /* Updated Text styling for a handwritten look */
-    #letterContent {
+    /* Styling for each line of text */
+    #line1 {
+      font-size: 1.8rem;
+      font-family: 'KaiTi', cursive;
+    }
+    #line2, #line3, #line4 {
       font-size: 1.5rem;
-      line-height: 1.8;
-      color: #333;
-      white-space: pre-wrap;
-      padding-top: 120px; /* Adjust for spacing from the top */
-      font-family: 'Gabriola'; /* You may replace with a similar handwritten font */
+      font-family: 'KaiTi', cursive;
+    }
+    #line5 {
+      font-size: 1.2rem;
+      font-family: 'KaiTi', cursive;
+      align-self: flex-start;
+      margin-top: auto;
+      text-align: left;
     }
 
-    /* Enlarged GIF styling */
+    /* GIF styling */
     .gif {
       position: absolute;
-      bottom: 15px;
-      left: 15px;
-      width: 100px; /* Increased size */
-      height: 100px;
+      bottom: -20px; /* Overlaps the bottom border */
+      left: -20px; /* Overlaps the left border */
+      width: 80px;
+      height: 80px;
     }
   </style>
 </head>
 <body>
 
-<!-- Open Letter -->
 <div class="letter">
-  <p id="letterContent"></p>
-  <!-- Enlarged Heart GIF positioned at bottom left -->
-  <img src="../images/爱心.gif" alt="Heart GIF" class="gif"> <!-- Update path as needed -->
+  <div id="line1">祝您：</div>
+  <div id="line2">平安，健康，开心，</div>
+  <div id="line3">好运，自由，幸福，</div>
+  <div id="line4">吃嘛嘛香，</div>
+  <div id="line5">拉屎顺畅！</div>
+  <!-- Sunflower GIF -->
+  <img src="../images/爱心.gif" alt="Heart GIF" class="gif">
 </div>
-
-<script>
-  // Text to display in the letter, appearing one character at a time
-  const letterText = "<h2>祝您：</h2><p>平安，健康，</p><p>开心，好运，</p><p>自由，幸福，</p><p>吃嘛嘛香，</p><p>拉屎顺畅！</p>";
-
-  // Function to reveal text letter-by-letter
-  function revealText(text, element) {
-    let index = 0;
-    function showNextChar() {
-      if (index < text.length) {
-        element.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(showNextChar, 100); // Adjust speed of text reveal
-      }
-    }
-    showNextChar();
-  }
-
-  // Start the text reveal when the page loads
-  document.addEventListener("DOMContentLoaded", () => {
-    const letterContent = document.getElementById('letterContent');
-    revealText(letterText, letterContent);
-  });
-</script>
 
 </body>
 </html>
