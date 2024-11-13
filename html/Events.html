@@ -39,7 +39,7 @@
       width: 600px;
       height: 800px;
       background: url('../images/信纸.jpg') no-repeat center center;
-      background-size: cover;
+      background-size: 100% 100%; /* Ensures the full image is displayed without clipping */
       position: relative;
       text-align: center;
       display: flex;
@@ -57,9 +57,15 @@
       line-height: 1.8;
       color: #333;
       white-space: pre-wrap;
-      text-align: center;
       font-family: 'KaiTi', cursive;
     }
+
+    /* Positioned text */
+    .line1 { margin-top: 20px; }
+    .line2 { margin-top: 60px; }
+    .line3 { margin-top: 60px; }
+    .line4 { margin-top: 60px; }
+    .line5 { margin-top: 60px; }
 
     /* Enlarged GIF styling, positioned within the bottom-left corner of 信纸.jpg */
     .gif {
@@ -78,25 +84,40 @@
 
 <!-- Open Letter -->
 <div class="letter" onclick="startTyping()">
-  <div id="letterContent"></div>
+  <div id="letterContent">
+    <div class="line1">祝您：</div>
+    <div class="line2">平安，健康，开心，</div>
+    <div class="line3">好运，自由，幸福，</div>
+    <div class="line4">吃嘛嘛香，</div>
+    <div class="line5">拉屎顺畅！</div>
+  </div>
   <img src="../images/爱心.gif" alt="Heart GIF" class="gif">
 </div>
 
 <script>
   // Text to display in the letter with typewriter effect
-  const letterText = "祝您：\n平安，健康，开心，\n好运，自由，幸福，\n吃嘛嘛香，\n拉屎顺畅！";
+  const letterTextLines = [
+    "祝您：",
+    "平安，健康，开心，",
+    "好运，自由，幸福，",
+    "吃嘛嘛香，",
+    "拉屎顺畅！"
+  ];
 
-  // Function to reveal text letter-by-letter on click
+  // Function to reveal text line-by-line on click
   function startTyping() {
     const letterContent = document.getElementById('letterContent');
-    let index = 0;
     letterContent.innerHTML = ''; // Clear previous content
+    let lineIndex = 0;
 
     function typeWriter() {
-      if (index < letterText.length) {
-        letterContent.innerHTML += letterText.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100); // Adjust speed of text reveal
+      if (lineIndex < letterTextLines.length) {
+        const line = document.createElement("div");
+        line.className = `line${lineIndex + 1}`;
+        line.textContent = letterTextLines[lineIndex];
+        letterContent.appendChild(line);
+        lineIndex++;
+        setTimeout(typeWriter, 1000); // Delay between lines
       }
     }
 
