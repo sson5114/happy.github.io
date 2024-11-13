@@ -115,14 +115,9 @@
       transition: transform 0.3s;
     }
 
-    /* Hover effect for images */
-    .item1:hover .project-image {
-      content: url('./images/project-selected.png'); /* Path to selected state image for Projects */
-      transform: scale(1.1); /* Slightly enlarge the image on hover */
-    }
-
+    /* Hover effect */
+    .item1:hover .project-image,
     .item2:hover .event-image {
-      content: url('./images/event-selected.png'); /* Path to selected state image for Events */
       transform: scale(1.1); /* Slightly enlarge the image on hover */
     }
 
@@ -171,7 +166,9 @@
       <!-- Projects Section -->
       <div class="item1 bgOne">
         <!-- Replace text with image and apply hover effect -->
-        <img src="./images/小狗.png" alt="Projects" class="section-image project-image">
+        <img src="./images/小狗.png" alt="Projects" class="section-image project-image" 
+             onmouseover="this.src='./images/project-selected.png'" 
+             onmouseout="this.src='./images/小狗.png'">
         <ul>
           <li><a href="./html/Projects.html">Types</a></li>
           <li><a href="./html/Projects.html">Location</a></li>
@@ -182,7 +179,9 @@
       <!-- Events Section -->
       <div class="item2 bgTwo">
         <!-- Replace text with image and apply hover effect -->
-        <img src="./images/帽子.png" alt="Events" class="section-image event-image">
+        <img src="./images/帽子.png" alt="Events" class="section-image event-image" 
+             onmouseover="this.src='./images/event-selected.png'" 
+             onmouseout="this.src='./images/帽子.png'">
         <ul>
           <li><a href="./html/Events.html">News</a></li>
           <li><a href="./html/Events.html">Awards</a></li>
