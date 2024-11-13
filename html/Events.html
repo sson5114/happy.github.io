@@ -41,7 +41,7 @@
       width: 600px;
       height: 800px;
       background: url('../images/信纸.jpg') no-repeat center center;
-      background-size: 100% 100%; /* Ensures the full image is displayed without clipping */
+      background-size: 100% 100%;
       position: relative;
       text-align: center;
       display: flex;
@@ -49,7 +49,7 @@
       justify-content: flex-start;
       padding: 40px;
       box-sizing: border-box;
-      border: 5px solid #333; /* Adding a border around the letter */
+      border: 5px solid #333;
       border-radius: 10px;
     }
 
@@ -59,7 +59,7 @@
       line-height: 1.4;
       color: #333;
       white-space: pre-wrap;
-      font-family: 'Delicious Handrawn', cursive; /* Apply Delicious Handrawn font */
+      font-family: 'Delicious Handrawn', cursive;
       font-weight: bold;
       text-align: center;
       padding-top: 50px;
@@ -68,9 +68,9 @@
     /* Enlarged GIF styling, positioned within the bottom-left corner of 信纸.jpg */
     .gif {
       position: absolute;
-      bottom: 20px; /* Positioned slightly within the border */
-      left: 20px; /* Positioned slightly within the border */
-      width: 120px; /* Increased size */
+      bottom: 20px;
+      left: 20px;
+      width: 120px;
       height: 120px;
     }
   </style>
@@ -87,14 +87,14 @@
 </div>
 
 <script>
-  // Text to display in the letter with typewriter effect, split into lines
+  // Text to display in the letter with typewriter effect
   const letterText = "祝您：\n平安，健康，开心，\n好运，自由，幸福，\n吃嘛嘛香，\n拉屎顺畅！";
 
   // Function to reveal text character-by-character on click
   function startTyping() {
     const letterContent = document.getElementById('letterContent');
+    let index = 0; // Reset index each time
     letterContent.innerHTML = ''; // Clear previous content
-    let index = 0;
 
     function typeWriter() {
       if (index < letterText.length) {
@@ -104,11 +104,8 @@
       }
     }
 
-    // Trigger the typing effect only on first click
-    if (!letterContent.dataset.started) {
-      letterContent.dataset.started = "true";
-      typeWriter();
-    }
+    // Trigger the typing effect
+    typeWriter();
   }
 </script>
 
