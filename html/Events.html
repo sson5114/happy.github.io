@@ -20,57 +20,65 @@
     .letter {
       width: 600px;
       height: 800px;
-      border: 2px solid #000;
-      border-radius: 10px;
       background: url('../images/信纸.jpg') no-repeat center center;
       background-size: contain;
       position: relative;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding: 40px;
       box-sizing: border-box;
     }
 
-    /* Styling for each line of text */
-    #line1 {
-      font-size: 1.8rem;
-      font-family: 'HYXiaoMaiTiJ';
-    }
-    #line2, #line3, #line4 {
+    /* Text styling */
+    #letterContent {
       font-size: 1.5rem;
+      line-height: 1.8;
+      color: #333;
+      white-space: pre-wrap;
+      text-align: center;
       font-family: 'KaiTi', cursive;
-    }
-    #line5 {
-      font-size: 1.2rem;
-      font-family: 'KaiTi', cursive;
-      align-self: flex-start;
-      margin-top: auto;
-      text-align: left;
     }
 
-    /* GIF styling */
+    /* Transparent GIF styling */
     .gif {
       position: absolute;
-      bottom: -20px; /* Overlaps the bottom border */
-      left: -20px; /* Overlaps the left border */
-      width: 80px;
-      height: 80px;
+      bottom: -15px; /* Slightly overlaps the border */
+      left: -15px; /* Slightly overlaps the border */
+      width: 100px;
+      height: 100px;
     }
   </style>
 </head>
 <body>
 
-<div class="letter">
-  <div id="line1">祝您：</div>
-  <div id="line2">平安，健康，开心，</div>
-  <div id="line3">好运，自由，幸福，</div>
-  <div id="line4">吃嘛嘛香，</div>
-  <div id="line5">拉屎顺畅！</div>
-  <!-- Sunflower GIF -->
+<div class="letter" onclick="startTyping()">
+  <div id="letterContent"></div>
   <img src="../images/爱心.gif" alt="Heart GIF" class="gif">
 </div>
+
+<script>
+  // Text to display in the letter with typewriter effect
+  const letterText = "祝您：\n平安，健康，开心，\n好运，自由，幸福，\n吃嘛嘛香，\n拉屎顺畅！";
+
+  // Function to reveal text letter-by-letter on click
+  function startTyping() {
+    const letterContent = document.getElementById('letterContent');
+    let index = 0;
+    letterContent.innerHTML = ''; // Clear previous content
+
+    function typeWriter() {
+      if (index < letterText.length) {
+        letterContent.innerHTML += letterText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // Adjust speed of text reveal
+      }
+    }
+
+    typeWriter();
+  }
+</script>
 
 </body>
 </html>
