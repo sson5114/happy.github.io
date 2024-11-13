@@ -107,6 +107,54 @@
     .main-content {
       display: none;
     }
+
+    /* Flexbox layout for Projects and Events sections */
+    .main {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Styling for Projects and Events sections */
+    .item1, .item2 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .item1 {
+      background-color: #e0bbd5; /* Light pink for Projects */
+    }
+
+    .item2 {
+      background-color: #d8c3a5; /* Light beige for Events */
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 
@@ -126,60 +174,46 @@
   <!-- Main content of the website -->
   <div class="main-content">
     <div class="main">
+      <!-- Projects Section -->
       <div class="item1 bgOne">
         <h1>PROJECTS</h1>
         <ul>
-          <li><a href="./html/Projects.html">
-              <h2>Types</h2>
-            </a></li>
-          <li><a href="./html/Projects.html">
-              <h2>Location</h2>
-            </a></li>
-          <li><a href="./html/Projects.html">
-              <h2>Materials</h2>
-            </a></li>
-          <li><a href="./html/Projects.html">
-              <h2>Architects</h2>
-            </a></li>
+          <li><a href="./html/Projects.html">Types</a></li>
+          <li><a href="./html/Projects.html">Location</a></li>
+          <li><a href="./html/Projects.html">Materials</a></li>
+          <li><a href="./html/Projects.html">Architects</a></li>
         </ul>
       </div>
+
+      <!-- Events Section -->
       <div class="item2 bgTwo">
         <h1>EVENTS</h1>
         <ul>
-          <li><a href="./html/Events.html">
-              <h2>News</h2>
-            </a></li>
-          <li><a href="./html/Events.html">
-              <h2>Awards</h2>
-            </a></li>
+          <li><a href="./html/Events.html">News</a></li>
+          <li><a href="./html/Events.html">Awards</a></li>
         </ul>
-      </div>
-      <div class="main_right">
-        <a href="#"><img src="./images/logo-1.png" alt="logo"></a>
       </div>
     </div>
   </div>
 
   <script>
-  const openButton = document.getElementById('openButton');
-  const envelopeOverlay = document.getElementById('envelopeOverlay');
-  const mainContent = document.querySelector('.main-content');
+    const openButton = document.getElementById('openButton');
+    const envelopeOverlay = document.getElementById('envelopeOverlay');
+    const mainContent = document.querySelector('.main-content');
 
-  // Check if 'overlayOpened' is stored in local storage
-  if (localStorage.getItem('overlayOpened') === 'true') {
-    envelopeOverlay.style.display = 'none';  // Hide the overlay
-    mainContent.style.display = 'block';     // Show the main content
-  } else {
-    // Show overlay and wait for "Open Letter" button click
-    openButton.addEventListener('click', function() {
-      envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
+    // Check if 'overlayOpened' is stored in local storage
+    if (localStorage.getItem('overlayOpened') === 'true') {
+      envelopeOverlay.style.display = 'none';  // Hide the overlay
       mainContent.style.display = 'block';     // Show the main content
-      localStorage.setItem('overlayOpened', 'true'); // Set flag in local storage
-    });
-  }
-</script>
-
+    } else {
+      // Show overlay and wait for "Open Letter" button click
+      openButton.addEventListener('click', function() {
+        envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
+        mainContent.style.display = 'block';     // Show the main content
+        localStorage.setItem('overlayOpened', 'true'); // Set flag in local storage
+      });
+    }
+  </script>
 
 </body>
 </html>
-
