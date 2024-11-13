@@ -88,7 +88,7 @@
   <div class="overlay" id="envelopeOverlay">
     <!-- Closed Envelope View -->
     <div class="closed-envelope" id="closedEnvelope">
-      <img src="./images/closed-envelope.jpg" alt="Closed Envelope" onclick="openLetter()">
+      <img src="./images/closed-envelope.jpg" alt="Closed Envelope" onclick="showOpenLetter()">
     </div>
 
     <!-- Open Letter View (initially hidden) -->
@@ -129,7 +129,7 @@
     const openLetter = document.getElementById('openLetter');
 
     // Function to display the open letter view
-    function openLetter() {
+    function showOpenLetter() {
       closedEnvelope.style.display = 'none';  // Hide the closed envelope
       openLetter.style.display = 'flex';      // Show the open letter
     }
