@@ -32,7 +32,7 @@
     /* GIF image styling */
     .card img {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
       height: auto;
       margin: 10px 0;
     }
@@ -67,13 +67,29 @@
       font-size: 24px;
       color: #333;
     }
+    
+    /* Back button styling */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: #333;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      color: #FF69B4;
+    }    
   </style>
   <!-- Embedding Font Awesome icons directly to avoid loading issues -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-<!-- Back Button -->
-<button class="back-button" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+<!-- Back Button with Icon Only -->
+<button class="back-button" onclick="goToIndexPage()"><i class="fas fa-arrow-left"></i></button>
 
 <div class="card">
   <!-- Decorative image (GIF) larger size -->
