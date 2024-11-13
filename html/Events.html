@@ -1,119 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Events</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/top.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/Projects.css">
+  <title>Interactive Letter - Events Page</title>
   <style>
-    .left_text ul li {
-      font-size: 15px;
-      line-height: 40px;
+    /* Basic styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
     }
 
-    .left_text ul li a {
-      color: #878787;
+    /* Closed envelope styling */
+    .envelope {
+      width: 600px;
+      height: 400px;
+      background-image: url('../images/your-closed-envelope-image.jpg'); /* replace with correct path */
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #000;
+      border-radius: 10px;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Open letter styling */
+    .letter {
+      width: 600px;
+      height: 400px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #fffdf0;
+      display: none;
+      position: relative;
+    }
+
+    /* Text styling */
+    .letter p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* GIF styling */
+    .gif {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
     }
   </style>
 </head>
-
 <body>
-  <div>
-    <div class="top">
-      <div class="top_left">
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../images/logo.png" alt="subscribe">
-          </a>
-        </div>
-        <div class="sousuo">
-          <form action="" class="sousuo-form">
-            <img src="../images/搜索.png" alt="">
-            <input type="text" placeholder="Search">
-            <a href="./login.html"><img src="../images/邮件.png" alt=""></a>
-          </form>
-        </div>
-      </div>
-      <div class="nav">
-        <ul>
-          <li class="active"><a href="./Projects.html">Projects</a>
-            <ul>
-              <li><a href="./Projects.html">Types</a></li>
-              <li><a href="./Projects.html">Location</a></li>
-              <li><a href="./Projects.html">Materials</a></li>
-              <li><a href="./Projects.html">Architects</a></li>
-            </ul>
-          </li>
-          <li class="active" style="border-bottom: 1px solid #000;"><a href="./Events.html">Events</a>
-            <ul>
-              <li><a href="./Events.html">News</a></li>
-              <li><a href="./Events.html">Awards</a></li>
-            </ul>
-          </li>
-          <li class="active"><a href="./Professionals.html">Professionals</a>
-            <ul>
-              <li><a href="./Professionals.html">Offices</a></li>
-              <li><a href="./Professionals.html">Architects</a></li>
-            </ul>
-          </li>
-          <li class="active"><a href="./Contact.html">Contact</a>
-            <ul>
-              <li><a href="./Contact.html">Contact</a></li>
-              <li><a href="./Contact.html">Submission</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main m">
-      <div class="main-title">
-        <h1>EVENTS |</h1>
-        <h1 style="color: #878787;cursor: pointer;" id="Results">400 Results</h1>
-      </div>
-      <div class="main-content">
-        <div class="main-left">
-          <div class="left_text">
-            <ul>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Awards</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="main-right">
-          <ul>
-            <li>
-              <a href="./Detail.html?id=1">
-                <img src="../images/ceshi .jpg" alt="Graham Foundation Awards 64 Grants for Architecture and Design Projects with Critical Perspectives">
-                <h1>Graham Foundation Awards 64 Grants for Architecture and Design Projects with Critical Perspectives</h1>
-                <h2>May 19 2023, Nicolás Valencia</h2>
-              </a>
-            </li>
-            <li>
-              <a href="./Detail.html?id=2">
-                <img src="../images/award.jpg" alt="The Design Educates Awards 2023 Unveil Their List of Winners">
-                <h1>The Design Educates Awards 2023 Unveil Their List of Winners</h1>
-                <h2>May 19 2023, Diego Hernández</h2>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script>
-    var result = document.querySelector('.main-right ul')
-    var results_li = result.getElementsByTagName('li')
-    var Results = document.querySelector('#Results')
+<!-- Closed Envelope -->
+<div class="envelope" id="envelope">
+  <!-- Placeholder text to indicate it's clickable -->
+  <span style="color: white; font-size: 1.5rem; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 5px;">Click to Open</span>
+</div>
 
-    Results.innerHTML = results_li.length + ' Results'
-  </script>
+<!-- Open Letter -->
+<div class="letter" id="letter">
+  <p id="letterContent"></p>
+  <!-- Sunflower GIF -->
+  <img src="../images/祝爸爸：生日快乐.jpg" alt="Sunflower GIF" class="gif">
+</div>
+
+<script>
+  // Text content to display letter-by-letter
+  const letterText = "祝您：平安，健康，开心，好运，自由，幸福，吃嘛嘛香，拉屎顺畅";
+  
+  // Get elements
+  const envelope = document.getElementById('envelope');
+  const letter = document.getElementById('letter');
+  const letterContent = document.getElementById('letterContent');
+  const gif = document.querySelector('.gif');
+  
+  // Function to show the letter content one character at a time
+  function revealLetterText(text, element) {
+    let index = 0;
+    function showNextCharacter() {
+      if (index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(showNextCharacter, 100); // Adjust speed here
+      }
+    }
+    showNextCharacter();
+  }
+
+  // Event listener to handle envelope click
+  envelope.addEventListener('click', function() {
+    // Hide envelope, show letter and start text animation
+    envelope.style.display = 'none';
+    letter.style.display = 'block';
+    revealLetterText(letterText, letterContent);
+  });
+</script>
 
 </body>
-
 </html>
