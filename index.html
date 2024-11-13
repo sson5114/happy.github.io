@@ -151,7 +151,7 @@
   </div>
 
   <!-- Main content of the website -->
-  <div class="main-content">
+  <div class="main-content" id="mainContent">
     <div class="main">
       <!-- Projects Section -->
       <div class="item1 bgOne">
@@ -177,9 +177,18 @@
   <script>
     const openButton = document.getElementById('openButton');
     const envelopeOverlay = document.getElementById('envelopeOverlay');
-    const mainContent = document.querySelector('.main-content');
+    const mainContent = document.getElementById('mainContent');
     const closedEnvelope = document.getElementById('closedEnvelope');
     const openLetter = document.getElementById('openLetter');
+
+    // Check the URL parameters for skipOverlay to directly show main content
+    const urlParams = new URLSearchParams(window.location.search);
+    const skipOverlay = urlParams.get('skipOverlay') === 'true';
+
+    if (skipOverlay) {
+      envelopeOverlay.style.display = 'none';  // Hide the overlay
+      mainContent.style.display = 'flex';      // Show the main content
+    }
 
     // Function to display the open letter view
     function showOpenLetter() {
@@ -192,15 +201,6 @@
       envelopeOverlay.style.display = 'none';  // Hide the envelope overlay
       mainContent.style.display = 'flex';      // Show the main content
     });
-
-    // Check if 'skipOverlay' is present in the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const skipOverlay = urlParams.get('skipOverlay');
-
-    if (skipOverlay === 'true') {
-      envelopeOverlay.style.display = 'none';  // Hide the overlay
-      mainContent.style.display = 'flex';      // Show the main content
-    }
   </script>
 
 </body>
