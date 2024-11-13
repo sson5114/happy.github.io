@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Letter - Events Page</title>
+  <title>Events - DeArchi</title>
   <style>
     /* Basic styling */
     body {
@@ -16,22 +16,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Closed envelope styling */
-    .envelope {
-      width: 600px;
-      height: 400px;
-      background-image: url('../images/your-closed-envelope-image.jpg'); /* replace with correct path */
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #000;
-      border-radius: 10px;
-      transition: opacity 0.5s ease;
-    }
-
     /* Open letter styling */
     .letter {
       width: 600px;
@@ -40,15 +24,16 @@
       border-radius: 10px;
       padding: 20px;
       background-color: #fffdf0;
-      display: none;
       position: relative;
+      text-align: left;
     }
 
     /* Text styling */
-    .letter p {
+    #letterContent {
       font-size: 1.2rem;
       line-height: 1.6;
       color: #333;
+      white-space: pre-wrap;
     }
 
     /* GIF styling */
@@ -63,48 +48,34 @@
 </head>
 <body>
 
-<!-- Closed Envelope -->
-<div class="envelope" id="envelope">
-  <!-- Placeholder text to indicate it's clickable -->
-  <span style="color: white; font-size: 1.5rem; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 5px;">Click to Open</span>
-</div>
-
 <!-- Open Letter -->
-<div class="letter" id="letter">
+<div class="letter">
   <p id="letterContent"></p>
   <!-- Sunflower GIF -->
-  <img src="../images/祝爸爸：生日快乐.jpg" alt="Sunflower GIF" class="gif">
+  <img src="../images/祝爸爸：生日快乐.jpg" alt="Sunflower GIF" class="gif"> <!-- Update path as needed -->
 </div>
 
 <script>
-  // Text content to display letter-by-letter
+  // Text to display in the letter, appearing one character at a time
   const letterText = "祝您：平安，健康，开心，好运，自由，幸福，吃嘛嘛香，拉屎顺畅";
-  
-  // Get elements
-  const envelope = document.getElementById('envelope');
-  const letter = document.getElementById('letter');
-  const letterContent = document.getElementById('letterContent');
-  const gif = document.querySelector('.gif');
-  
-  // Function to show the letter content one character at a time
-  function revealLetterText(text, element) {
+
+  // Function to reveal text letter-by-letter
+  function revealText(text, element) {
     let index = 0;
-    function showNextCharacter() {
+    function showNextChar() {
       if (index < text.length) {
         element.innerHTML += text.charAt(index);
         index++;
-        setTimeout(showNextCharacter, 100); // Adjust speed here
+        setTimeout(showNextChar, 100); // Adjust speed of text reveal
       }
     }
-    showNextCharacter();
+    showNextChar();
   }
 
-  // Event listener to handle envelope click
-  envelope.addEventListener('click', function() {
-    // Hide envelope, show letter and start text animation
-    envelope.style.display = 'none';
-    letter.style.display = 'block';
-    revealLetterText(letterText, letterContent);
+  // Start the text reveal when the page loads
+  document.addEventListener("DOMContentLoaded", () => {
+    const letterContent = document.getElementById('letterContent');
+    revealText(letterText, letterContent);
   });
 </script>
 
