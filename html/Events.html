@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,16 +16,20 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Open letter styling */
+    /* Open letter styling with background image */
     .letter {
       width: 600px;
-      height: 400px;
+      height: 800px;
       border: 2px solid #000;
       border-radius: 10px;
       padding: 20px;
-      background-color: #fffdf0;
+      background: url('../images/信纸.jpg') no-repeat center center;
+      background-size: cover;
       position: relative;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     /* Text styling */
@@ -34,6 +38,7 @@
       line-height: 1.6;
       color: #333;
       white-space: pre-wrap;
+      padding-top: 100px; /* Add padding to position the text nicely over the background */
     }
 
     /* GIF styling */
@@ -52,12 +57,12 @@
 <div class="letter">
   <p id="letterContent"></p>
   <!-- Sunflower GIF -->
-  <img src="../images/爱心.gif" alt="爱心.gif" class="gif"> <!-- Update path as needed -->
+  <img src="../images/爱心.gif" alt="Sunflower GIF" class="gif"> <!-- Update path as needed -->
 </div>
 
 <script>
   // Text to display in the letter, appearing one character at a time
-  const letterText = "祝您：平安，健康，开心，好运，自由，幸福，吃嘛嘛香，拉屎顺畅";
+  const letterText = "祝宋欣先生：平安，健康，开心，好运，自由，幸福，吃嘛嘛香，拉屎顺畅！";
 
   // Function to reveal text letter-by-letter
   function revealText(text, element) {
