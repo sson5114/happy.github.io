@@ -14,14 +14,31 @@
       margin: 0;
       background-color: #f8f8f8;
       font-family: Arial, sans-serif;
+      position: relative;
     }
 
-    /* Letter styling with background image */
+    /* Back button styling */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: #333;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      color: #FF69B4;
+    }
+
+    /* Letter styling with background image and border */
     .letter {
       width: 600px;
       height: 800px;
       background: url('../images/信纸.jpg') no-repeat center center;
-      background-size: contain;
+      background-size: cover;
       position: relative;
       text-align: center;
       display: flex;
@@ -29,6 +46,8 @@
       justify-content: flex-start;
       padding: 40px;
       box-sizing: border-box;
+      border: 5px solid #333; /* Adding a border around the letter */
+      border-radius: 10px;
     }
 
     /* Text styling */
@@ -38,22 +57,25 @@
       color: #333;
       white-space: pre-wrap;
       text-align: center;
-      font-family: 'cursive', cursive;
-      font-weight: bold;
+      font-family: 'KaiTi', cursive;
     }
 
-    /* Transparent GIF styling */
+    /* Enlarged GIF styling, positioned within the bottom-left corner of 信纸.jpg */
     .gif {
       position: absolute;
-      bottom: -15px; /* Slightly overlaps the border */
-      left: -15px; /* Slightly overlaps the border */
-      width: 100px;
-      height: 100px;
+      bottom: 20px; /* Positioned slightly within the border */
+      left: 20px; /* Positioned slightly within the border */
+      width: 120px; /* Increased size */
+      height: 120px;
     }
   </style>
 </head>
 <body>
 
+<!-- Back Button as a link with icon style -->
+<a href="./Contact.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
+
+<!-- Open Letter -->
 <div class="letter" onclick="startTyping()">
   <div id="letterContent"></div>
   <img src="../images/爱心.gif" alt="Heart GIF" class="gif">
@@ -81,5 +103,7 @@
   }
 </script>
 
+<!-- Font Awesome for the back button icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </body>
 </html>
